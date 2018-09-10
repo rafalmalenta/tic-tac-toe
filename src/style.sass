@@ -1,2 +1,63 @@
-body
-    background-color: rgb(232,52,52)
+@import ./rules
+@mixin box-sizing($box-model) 
+  box-sizing: $box-model 
+  -webkit-box-sizing: $box-model // Safari <= 5
+  -moz-box-sizing: $box-model // Firefox <= 19
+   box-sizing: $box-model
+
+@media all and (orientation: landscape)
+    #app
+        margin-top: 20vh
+        margin-left: 10vh 
+    .TTT--row
+        width: 60vh
+        height: 20vh
+               
+    .TTT--col
+        width: 20vh
+        height: 20vh 
+        background-color: yellow  
+            
+        
+
+@media all and (orientation: portrait)
+    #app
+        margin-left: 20vw
+        margin-top: 11vw
+    .TTT--row
+        width: 69vw
+        //height: 22vw        
+    .TTT--col
+        width: 23vw
+        height: 23vw
+        background-color: silver
+              
+
+body 
+    width: 100%
+    height: 100%
+    padding: 0px 
+    margin: 0px 0px auto
+    position: absolute
+    @include box-sizing(border-box)
+    overflow: hidden
+        
+
+.TTT
+    //position: relative
+    //margin: 0 auto
+            
+
+.TTT--col
+    //overflow: hidden
+    padding: 0px
+    float: left
+    opacity: 0.7
+    border: 1px solid grey
+    @include box-sizing(border-box)
+
+#app
+    @include box-sizing(border-box)
+    
+       
+    

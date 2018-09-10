@@ -4,7 +4,9 @@
   "description": "tic tac toe",
   "main": "index.js",
   "dependencies": {
+    "babel-preset-react": "^6.24.1",
     "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "sass-loader": "^7.1.0"
   },
   "devDependencies": {
@@ -22,7 +24,7 @@
   },
   "scripts": {
     "test": "test",
-    "dev": "webpack-dev-server -d --content-base ./build --progress --colors --port 8000 ",
+    "dev": "webpack-dev-server -d --content-base ./build --progress --colors --port 8100 ",
     "build": "webpack"
   },
   "author": "Rafmen",
