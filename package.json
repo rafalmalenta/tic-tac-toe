@@ -4,6 +4,7 @@
   "description": "tic tac toe",
   "main": "index.js",
   "dependencies": {
+    "react": "^16.5.0",
     "sass-loader": "^7.1.0"
   },
   "devDependencies": {
