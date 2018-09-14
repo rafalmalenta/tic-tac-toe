@@ -10,7 +10,7 @@ export default class Row extends React.Component {
     render() {
        
         
-        console.log(this.zupdateValue);
+       
         //this.props.setvalue;
         //setTimeout(()=>this.zupdateValue(0,1), 2000)
       if(!this.props.status)  

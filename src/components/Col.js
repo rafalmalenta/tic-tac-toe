@@ -6,7 +6,7 @@ export default class Row extends React.Component {
             this.props.value == null)
             
             {
-            console.log(this.props);
+           
             this.props.updateValue(this.props.row,this.props.col);
         }   
         

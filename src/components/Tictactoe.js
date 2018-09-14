@@ -28,7 +28,7 @@ export default class Tictactoe extends React.Component {
     
         updateValue(rowNum,colNum){
             var currentPlayer = this.state.status;            
-            //console.log( this.state.values );
+           
             var temparray = [ ...this.state.values[rowNum] ];            
             temparray.splice(colNum, 1, this.state.players[currentPlayer].sign);
             //Change player
@@ -40,13 +40,34 @@ export default class Tictactoe extends React.Component {
             var values = [ ...this.state.values ] ;
             values.splice(rowNum,1, temparray);
             this.setState({values: values});
-            console.log(values[rowNum]);
-
-            this.checkWinner(values, this.state.players[currentPlayer],rowNum,colNum)
+            //console.log(values);
+            //console.log(this.state.values);
+            this.checkWinner(values, this.state.players[currentPlayer],rowNum,colNum);
+            this.checkIfAnyMovePossible(values);
         }
 
-        checkWinner(matrixToCheck,whoMoved,rowNum,colNum){                
+        checkIfAnyMovePossible(matrixToCheck){
             console.log(matrixToCheck)
+            var possible = false;
+            var temp;
+            for(var i=0;i<3;i++){
+                for(var j=0; j<3;j++){ 
+                    //console.log("ra"+matrixToCheck[i][j]+" ")
+                    if(matrixToCheck[i][j] == null){
+                        possible = true;
+                        break;
+                        }
+                        console.log(possible)
+                        //console.log("ra"+matrixToCheck[1][1]+" ");}}}
+                    }}
+            if(!possible)
+                this.setState({winner:"remis"});     
+                        
+        }            
+                
+            
+        checkWinner(matrixToCheck,whoMoved,rowNum,colNum){                
+            
             if(
                 (matrixToCheck[rowNum][0] == whoMoved.sign) &&
                 (matrixToCheck[rowNum][1] == whoMoved.sign) &&
@@ -97,15 +118,15 @@ export default class Tictactoe extends React.Component {
         </div>
         
         );
-        else
+        else 
         return(
             <div className="TTT" id="ttt"  >
-                <Row  className="TTT--row" row="0" values={this.state.values[0]} status={this.state.status}/>
-                <Row  className="TTT--row" row="1" values={this.state.values[1]} status={this.state.status}/>
-                <Row  className="TTT--row" row="2" values={this.state.values[2]} status={this.state.status}/>
                 <div>
-                Koniec gry wygrał {this.state.winner} <button onClick={this.reset.bind(this)}>reset</button>
+                Koniec gry {this.state.winner} <button onClick={this.reset.bind(this)}>reset</button>
                 </div>   
+                <Row  className="TTT--row" row="0" values={this.state.values[0]} status={this.state.winner}/>
+                <Row  className="TTT--row" row="1" values={this.state.values[1]} status={this.state.winner}/>
+                <Row  className="TTT--row" row="2" values={this.state.values[2]} status={this.state.winner}/>
             </div>
         );
     }
