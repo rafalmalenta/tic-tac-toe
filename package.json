@@ -24,7 +24,7 @@
   },
   "scripts": {
     "test": "test",
-    "dev": "webpack-dev-server -d --content-base ./build --progress --colors --port 8100 ",
+    "dev": "webpack-dev-server -d --content-base ./build --hot --progress --colors --port 8100 ",
     "build": "webpack"
   },
   "author": "Rafmen",

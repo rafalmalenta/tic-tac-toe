@@ -67,7 +67,7 @@ export default class Tictactoe extends React.Component {
                 
             
         checkWinner(matrixToCheck,whoMoved,rowNum,colNum){                
-            
+        
             if(
                 (matrixToCheck[rowNum][0] == whoMoved.sign) &&
                 (matrixToCheck[rowNum][1] == whoMoved.sign) &&
@@ -110,10 +110,11 @@ export default class Tictactoe extends React.Component {
     render() {if(!this.state.winner)
       return (
         <div className="TTT" id="ttt"  >
+        <div>następny ruch wykonuje {this.state.players[this.state.status].name}</div>
          <Row  className="TTT--row" row="0" updateValue={this.updateValue.bind(this)} values={this.state.values[0]} />
          <Row  className="TTT--row" row="1" updateValue={this.updateValue.bind(this)} values={this.state.values[1]} />
          <Row  className="TTT--row" row="2" updateValue={this.updateValue.bind(this)} values={this.state.values[2]} />
-         <div>następny ruch wykonuje {this.state.players[this.state.status].name}</div>
+         
          
         </div>
         

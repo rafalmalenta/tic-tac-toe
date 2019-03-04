@@ -5,10 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  context: path.join(__dirname, "build"),
-  //context: __dirname,
+  //context: path.join(__dirname, "build"),
+  context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "../src/scripts.js",
+  entry: "./src/scripts.js",
   plugins:  [
     new MiniCssExtractPlugin({filename: "style.min.css", })
       ],
