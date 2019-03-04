@@ -49,7 +49,6 @@ export default class Tictactoe extends React.Component {
         checkIfAnyMovePossible(matrixToCheck){
             console.log(matrixToCheck)
             var possible = false;
-            var temp;
             for(var i=0;i<3;i++){
                 for(var j=0; j<3;j++){ 
                     //console.log("ra"+matrixToCheck[i][j]+" ")
@@ -73,14 +72,14 @@ export default class Tictactoe extends React.Component {
                 (matrixToCheck[rowNum][1] == whoMoved.sign) &&
                 (matrixToCheck[rowNum][2] == whoMoved.sign)              
             )
-            this.setState({winner : whoMoved.name})
+            this.setState({winner : "wygrał "+whoMoved.name})
 
             else if(
                 (matrixToCheck[0][colNum] == whoMoved.sign) &&
                 (matrixToCheck[1][colNum] == whoMoved.sign) &&
                 (matrixToCheck[2][colNum] == whoMoved.sign)              
             )
-            this.setState({winner : whoMoved.name})
+            this.setState({winner : "wygrał "+whoMoved.name})
 
             else if(
                 (
@@ -113,9 +112,7 @@ export default class Tictactoe extends React.Component {
         <div>następny ruch wykonuje {this.state.players[this.state.status].name}</div>
          <Row  className="TTT--row" row="0" updateValue={this.updateValue.bind(this)} values={this.state.values[0]} />
          <Row  className="TTT--row" row="1" updateValue={this.updateValue.bind(this)} values={this.state.values[1]} />
-         <Row  className="TTT--row" row="2" updateValue={this.updateValue.bind(this)} values={this.state.values[2]} />
-         
-         
+         <Row  className="TTT--row" row="2" updateValue={this.updateValue.bind(this)} values={this.state.values[2]} />             
         </div>
         
         );
